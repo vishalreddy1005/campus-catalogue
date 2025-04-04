@@ -185,6 +185,25 @@ const FacilityDetail = () => {
         </div>
       </div>
 
+      {/* Google Map */}
+      <div className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-primary mb-8">Location Map</h2>
+          <div className="aspect-w-16 aspect-h-9">
+            <iframe
+              src={facility.gmapLocation}
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Facility Location"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
       {/* Similar Facilities */}
       {similarFacilities.length > 0 && (
         <div className="bg-gray-50 py-12">
