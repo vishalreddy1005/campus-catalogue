@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { facilities } from '../data/facilities';
@@ -51,10 +50,10 @@ const FacilityDetail = () => {
               </div>
             </div>
             <Link 
-              to={`/facilities/${facility.category.toLowerCase().replace(/\s+/g, '-')}`}
+              to={`/facilities/${facility.building.toLowerCase().replace(/\s+/g, '-')}`}
               className="mt-4 md:mt-0 bg-secondary text-primary px-4 py-2 rounded-md hover:bg-secondary/90 transition-colors inline-block"
             >
-              Back to {facility.category}
+              Back to {facility.building}
             </Link>
           </div>
         </div>

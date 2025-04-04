@@ -1,6 +1,5 @@
-
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { facilities } from '../data/facilities';
 import FacilityCard from '../components/FacilityCard';
 
@@ -87,6 +86,16 @@ const FacilityPage = () => {
             <p className="text-gray-500">Please check back later or explore other categories.</p>
           </div>
         )}
+      </div>
+
+      {/* Back to Home Button */}
+      <div className="text-center py-8">
+        <Link 
+          to="/" 
+          className="bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition"
+        >
+          Back to Home
+        </Link>
       </div>
     </div>
   );

@@ -36,7 +36,13 @@ const LandingPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-blue-900 py-16 md:py-24">
+      <section className="relative bg-gradient-to-r from-primary to-blue-900 h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJMfHv97SU6yXR88obQzSWdr1qCOroED5aNA&s')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
