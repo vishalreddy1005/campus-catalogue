@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 import { facilities } from '../data/facilities';
@@ -8,12 +7,20 @@ import FacilityCard from '../components/FacilityCard';
 const LandingPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Initialize state for image index
 
   const categories = [
     { id: 'anna-auditorium', name: 'Anna Auditorium', icon: '🏛️' },
     { id: 'mgr-block', name: 'Dr.M.G.R Block', icon: '🏢' },
     { id: 'sjt', name: 'Silver Jubilee Tower', icon: '🏨' },
     { id: 'tt', name: 'Technology Tower', icon: '🏗️' }
+  ];
+
+  const heroImage = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJMfHv97SU6yXR88obQzSWdr1qCOroED5aNA&s",
+    "/assets/img1.jpeg",
+    "/assets/img2.jpeg",
+    "/assets/img3.jpeg"
   ];
 
   const handleSearch = (query) => {
@@ -33,15 +40,26 @@ const LandingPage = () => {
     setSearchResults(results);
   };
 
+  // Automatically cycle through hero images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImage.length); // Cycle through images
+    }, 2000); // Change image every 2 seconds
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, [heroImage.length]);
+
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-blue-900 h-screen flex items-center justify-center"
-      style={{
-        backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJMfHv97SU6yXR88obQzSWdr1qCOroED5aNA&s')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      <section
+        id = "hero"
+        className="relative bg-gradient-to-r from-primary to-blue-900 h-screen flex items-center justify-center"
+        style={{
+          backgroundImage: `url('${heroImage[currentImageIndex]}')`, // Dynamically set background image
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
@@ -97,7 +115,7 @@ const LandingPage = () => {
       </section>
 
       {/* Featured Facilities */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id='venues' className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-primary text-center mb-12">Featured Facilities</h2>
           

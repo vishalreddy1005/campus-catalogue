@@ -7,7 +7,7 @@ const Navbar = ({ onLoginClick, onSignupClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full shadow-md z-20">
+    <nav className="fixed top-0 left-0 w-full bg-white bg-opacity-50 backdrop-blur-md shadow-md z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
@@ -16,6 +16,20 @@ const Navbar = ({ onLoginClick, onSignupClick }) => {
             </Link>
           </div>
           
+          {/* Centered Links */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#hero" className="text-primary text-xl hover:text-yellow-400 transition-colors">
+              Home
+            </a>
+            <a href="#venues" className="text-primary text-xl hover:text-yellow-400 transition-colors">
+              Venues
+            </a>
+            <a href="#about" className="text-primary text-xl hover:text-yellow-400 transition-colors">
+              About Us
+            </a>
+          </div>
+
+          {/* Right Section (Buttons) */}
           <div className="hidden md:flex items-center space-x-4">
             <button onClick={onLoginClick} className="btn-primary">
               Login

@@ -37,7 +37,7 @@ const FacilityDetail = () => {
   }
 
   return (
-    <div>
+    <div className="pt-16">
       {/* Facility Header */}
       <div className="bg-primary py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
